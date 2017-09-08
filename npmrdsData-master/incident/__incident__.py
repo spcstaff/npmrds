@@ -27,8 +27,8 @@ def get_json():
 
         cleard = f"{EventID},{EventType},{EventOccurs},{Update},{County},{StateRouteNo},{FromLocLatLong},{ToLocLatLong}\n"
         returned_data += cleard
-    # file_path = strftime("%D%H%M", gmtime())
-    output = open("incidents.csv" ,"w+")
+    file_path = strftime("%Y%m%d%H%M%S", gmtime())
+    output = open("incidents%s.csv" % file_path  ,"w+") # the downloaded file would be located with __incident__.py in npmrdsData-master
     output.write(returned_data)
     output.close()
 

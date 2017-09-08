@@ -27,7 +27,8 @@ def get_history(from_date, to_date):
 
     pprint.pprint(observation)
     return observation
-get_history('1960/11/1', '1960/11/10')
+
+# get_history('1960/11/1', '1960/11/10')
 
 
 # parse the result
@@ -57,10 +58,11 @@ def parse_result(fromdate, todate):
 
 def save_result(fromdate, todate):
     # name the file path with current time
-    file_path = strftime("%y%m%d%h%m%s", gmtime())
+    file_path = strftime("%Y%m%d%H%M%S", gmtime())
     # write the data stream
-    output = open("data%s.csv" % file_path, "w+")
+    output = open("weather%s.csv" % file_path , "w+")
     output.write(parse_result(fromdate, todate))
     output.close()
 
-# save_result('2016/05/01', '2016/05/06')
+# format is important: 'yyyy/mm/dd'
+save_result('2016/05/01', '2016/05/06')
